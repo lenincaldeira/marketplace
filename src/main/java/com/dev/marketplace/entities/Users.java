@@ -1,14 +1,12 @@
 package com.dev.marketplace.entities;
 
+import com.dev.marketplace.validations.UserAgeConstraint;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.*;
 import lombok.Data;
-import lombok.NonNull;
 
 import java.time.LocalDate;
 
@@ -24,10 +22,10 @@ public class Users {
     private String name;
 
     @Past(message = "Invalid date of birth")
-    @NotBlank(message = "Date of birth is mandatory!")
+    @UserAgeConstraint
     private LocalDate dateOfBirth;
 
-    @NonNull
+    @NotNull
     @NotBlank(message = "New password is mandatory")
     private String password;
 
@@ -35,6 +33,6 @@ public class Users {
     @NotBlank(message = "The e-mail is mandatory!")
     private String email;
 
-    //teste
-
+    @OneToOne
+    private Adress adress;
 }

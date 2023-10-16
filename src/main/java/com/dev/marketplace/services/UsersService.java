@@ -5,6 +5,8 @@ import com.dev.marketplace.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 @Service
@@ -33,4 +35,11 @@ public class UsersService {
         repository.deleteById(idUsers);
     }
 
+    private void validateMinimumAge(LocalDate birthDate) {
+        LocalDate currentDate = LocalDate.now();
+        int age = Period.between(birthDate, currentDate).getYears();
+        if (age < 18) {
+            throw new IllegalArgumentException("The user must be at least 18 years old.");
+        }
+    }
 }
