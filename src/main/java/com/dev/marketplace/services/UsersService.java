@@ -13,26 +13,26 @@ import java.util.List;
 public class UsersService {
 
     @Autowired
-    private UsersRepository repository;
+    private UsersRepository usersRepository;
 
     public List<Users> findAll() {
-        return repository.findAll();
+        return usersRepository.findAll();
     }
 
     public Users findById(Long idUsers) {
-        return repository.findById(idUsers).orElse(null);
+        return usersRepository.findById(idUsers).orElse(null);
     }
 
     public Users create(Users users) {
-        return repository.save(users);
+        return usersRepository.save(users);
     }
 
     public Users update(Users users) {
-        return repository.save(users);
+        return usersRepository.save(users);
     }
 
     public void delete(Long idUsers) {
-        repository.deleteById(idUsers);
+        usersRepository.deleteById(idUsers);
     }
 
     private void validateMinimumAge(LocalDate birthDate) {

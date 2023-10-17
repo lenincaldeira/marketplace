@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Target( {ElementType.METHOD, ElementType.FIELD} )
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UserAgeConstraint {
-    String message() default "Idade inválida";
+    String message() default "Acess denied for minors!";
     Class<?>[] groups() default{};
     Class<? extends Payload>[] payload() default {};
 }
