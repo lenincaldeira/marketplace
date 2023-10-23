@@ -1,29 +1,21 @@
 package com.dev.marketplace.dtos;
 
-import com.dev.marketplace.entities.Adress;
-import lombok.Data;
+import com.dev.marketplace.validations.UserAgeConstraint;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
-@Data
-public class UsersDTO {
+public record UsersDTO(
+        UUID id,
+        @NotNull(message = "The name is mandatory!")
+        @NotBlank(message = "The name is mandatory!")
+        @Min(value = 3, message = "The name is too short!") String name,
+        @UserAgeConstraint
+        @NotNull(message = "The date of birth is mandatory!")
+        @Past(message = "Invalid date of birth!") LocalDate dateOfBirth,
+        @NotNull(message = "The email is mandatory!")
+        @Email(message = "Invalid e-mail!") String email,
+        String password) {
 
-    private Long id;
-    private String name;
-    private LocalDate dateOfBirth;
-    private String password;
-    private String email;
-    private Adress adress;
-
-    public UsersDTO() {
-    }
-
-    public UsersDTO(Long id, String name, LocalDate dateOfBirth, String password, String email, Adress adress) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.password = password;
-        this.email = email;
-        this.adress = adress;
-    }
 }

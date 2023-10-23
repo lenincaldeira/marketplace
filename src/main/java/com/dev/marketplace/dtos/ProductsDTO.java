@@ -1,16 +1,15 @@
 package com.dev.marketplace.dtos;
 
-import lombok.Data;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-@Data
-public class ProductsDTO {
-    private Long id;
+import java.util.UUID;
 
-    public ProductsDTO() {
-    }
-
-    public ProductsDTO(Long id) {
-        this.id = id;
-    }
+public record ProductsDTO (
+        UUID id,
+        @NotNull(message = "The product name is mandatory!")
+        @NotBlank(message = "The product name is mandatory!")
+        @Min(value = 3, message = "The product name is too short!") String name){
 }
 

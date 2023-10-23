@@ -1,7 +1,6 @@
 package com.dev.marketplace.services;
 
 import com.dev.marketplace.entities.Adress;
-import com.dev.marketplace.entities.Users;
 import com.dev.marketplace.repositories.AdressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
