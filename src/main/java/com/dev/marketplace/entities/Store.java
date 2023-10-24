@@ -18,7 +18,4 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.UUID)
     private Long id;
     private String name;
-    private String type;
-
-
 }
