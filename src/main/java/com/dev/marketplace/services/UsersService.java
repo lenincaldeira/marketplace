@@ -8,4 +8,5 @@ import java.util.UUID;
 
 @Service
 public class UsersService extends GenericService<UUID, User, UsersRepository> {
+    //
 }
