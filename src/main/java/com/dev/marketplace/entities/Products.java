@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Products {
-//
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private Long id;
