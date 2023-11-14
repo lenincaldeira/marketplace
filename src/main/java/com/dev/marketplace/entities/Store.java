@@ -16,6 +16,6 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.UUID)
     private Long id;
     private String name;
-    private Long cnpj;
+    private String cnpj;
 
 }
