@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 import java.util.UUID;
-//
+
 public record UsersDTO(
         UUID id,
         @NotNull(message = "The name is mandatory!")
