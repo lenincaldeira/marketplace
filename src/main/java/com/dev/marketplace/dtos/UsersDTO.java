@@ -2,10 +2,11 @@ package com.dev.marketplace.dtos;
 
 import com.dev.marketplace.validations.UserAgeConstraint;
 import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 import java.util.UUID;
-
+//
 public record UsersDTO(
         UUID id,
         @NotNull(message = "The name is mandatory!")
@@ -16,6 +17,9 @@ public record UsersDTO(
         @Past(message = "Invalid date of birth!") LocalDate dateOfBirth,
         @NotNull(message = "The email is mandatory!")
         @Email(message = "Invalid e-mail!") String email,
+
+        @NotNull(message = "The CPF is mandatory!")
+        @CPF(message = "Invalid CPF!") Long cpf,
         String password) {
 
 }

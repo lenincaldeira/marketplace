@@ -10,6 +10,6 @@ public record ProductsDTO (
         UUID id,
         @NotNull(message = "The product name is mandatory!")
         @NotBlank(message = "The product name is mandatory!")
-        @Min(value = 3, message = "The product name is too short!") String name){
+        @Min(value = 3, message = "The product name is too short!") String name) {
 }
 

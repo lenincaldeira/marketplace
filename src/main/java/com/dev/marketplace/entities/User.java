@@ -19,7 +19,9 @@ public class User {
     private UUID id;
     private String name;
     private LocalDate dateOfBirth;
-    private String password;
+    private Long cpf;
     private String email;
+    private String password;
+
 
 }
